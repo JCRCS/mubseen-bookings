@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mubseen — Aplicaciones que se escuchan</title>
+<meta name="description" content="Mubseen desarrolla aplicaciones y herramientas de comunicación digital para que los negocios en Guatemala se conecten mejor con las personas que los buscan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16241F;
+    --paper: #F3F5F0;
+    --teal: #0F3D3E;
+    --jade: #1D7874;
+    --amber: #E8A33D;
+    --line: rgba(22, 36, 31, 0.14);
+    --max: 920px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    line-height: 1.15;
+    margin: 0;
+    color: var(--teal);
+  }
+
+  a { color: var(--jade); }
+
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* Header */
+  header {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .brand svg { display: block; }
+  .brand span {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 0.01em;
+  }
+  nav a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.95rem;
+    margin-left: 28px;
+  }
+  nav a:hover { color: var(--jade); }
+
+  /* Hero */
+  .hero {
+    padding: 84px 0 64px;
+  }
+  .hero-tag {
+    font-size: 0.95rem;
+    color: var(--jade);
+    margin: 0 0 18px;
+  }
+  .hero h1 {
+    font-size: clamp(2.3rem, 5vw, 3.6rem);
+    max-width: 15ch;
+  }
+  .hero p.lead {
+    max-width: 56ch;
+    font-size: 1.15rem;
+    margin: 26px 0 0;
+    color: #33463D;
+  }
+
+  /* Soundwave — the one deliberate visual moment */
+  .wave {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    height: 56px;
+    margin: 44px 0 8px;
+  }
+  .wave span {
+    display: block;
+    width: 6px;
+    background: var(--jade);
+    border-radius: 3px;
+    animation: rise 900ms ease-out both;
+  }
+  .wave span:nth-child(3n) { background: var(--amber); }
+  @keyframes rise {
+    from { transform: scaleY(0.08); opacity: 0; }
+    to { transform: scaleY(1); opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .wave span { animation: none; }
+  }
+
+  section { padding: 56px 0; }
+  section.divide { border-top: 1px solid var(--line); }
+
+  .section-head { max-width: 46ch; }
+  .section-head h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); }
+  .section-head p { color: #33463D; margin-top: 14px; }
+
+  /* Qué hacemos */
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: start;
+    margin-top: 40px;
+  }
+  .what-grid p { color: #33463D; margin: 0 0 16px; }
+  .what-grid p:last-child { margin-bottom: 0; }
+
+  .glyph {
+    justify-self: end;
+  }
+
+  /* Cómo trabajamos */
+  .steps {
+    margin-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 20px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .step .mark {
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    color: var(--amber);
+  }
+  .step h3 { font-size: 1.15rem; color: var(--teal); margin-bottom: 6px; }
+  .step p { margin: 0; color: #33463D; }
+
+  /* Contacto */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 56px;
+    margin-top: 40px;
+  }
+  .contact-info a.email {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-bottom: 1px solid var(--jade);
+    padding-bottom: 2px;
+  }
+
+  form { display: grid; gap: 14px; }
+  label {
+    font-size: 0.88rem;
+    color: #33463D;
+    display: block;
+    margin-bottom: 6px;
+  }
+  input, textarea {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #FDFDFC;
+    color: var(--ink);
+  }
+  input:focus, textarea:focus {
+    outline: 2px solid var(--jade);
+    outline-offset: 1px;
+  }
+  textarea { min-height: 110px; resize: vertical; }
+  button {
+    justify-self: start;
+    background: var(--teal);
+    color: #F3F5F0;
+    border: none;
+    padding: 13px 26px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  button:hover { background: var(--jade); }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 0 40px;
+    font-size: 0.9rem;
+    color: #5B6B62;
+  }
+
+  @media (max-width: 720px) {
+    .what-grid, .contact-grid { grid-template-columns: 1fr; }
+    .glyph { justify-self: start; margin-top: 8px; }
+    nav a { margin-left: 18px; font-size: 0.88rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <rect width="34" height="34" rx="8" fill="#0F3D3E"/>
+        <path d="M9 22V12L17 20L25 12V22" stroke="#F3F5F0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Mubseen</span>
+    </a>
+    <nav>
+      <a href="#que-hacemos">Qué hacemos</a>
+      <a href="#como-trabajamos">Cómo trabajamos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="hero-tag">Mubseen — make you be seen and heard</p>
+      <h1>Aplicaciones que hacen que tu negocio se escuche.</h1>
+      <p class="lead">Diseñamos y desarrollamos soluciones digitales a medida para que los negocios en Guatemala lleguen mejor a las personas que ya los están buscando.</p>
+      <div class="wave" aria-hidden="true">
+        <span style="height: 40%; animation-delay: 0ms"></span>
+        <span style="height: 70%; animation-delay: 60ms"></span>
+        <span style="height: 100%; animation-delay: 120ms"></span>
+        <span style="height: 55%; animation-delay: 180ms"></span>
+        <span style="height: 85%; animation-delay: 240ms"></span>
+        <span style="height: 35%; animation-delay: 300ms"></span>
+        <span style="height: 65%; animation-delay: 360ms"></span>
+        <span style="height: 95%; animation-delay: 420ms"></span>
+        <span style="height: 50%; animation-delay: 480ms"></span>
+        <span style="height: 75%; animation-delay: 540ms"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="divide" id="que-hacemos">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Qué hacemos</h2>
+      </div>
+      <div class="what-grid">
+        <div>
+          <p>Mubseen es un estudio guatemalteco de desarrollo de software. Construimos aplicaciones y herramientas de comunicación digital pensadas para negocios que quieren atender mejor a sus clientes, sin depender de procesos manuales ni de plataformas genéricas que no se ajustan a su forma de trabajar.</p>
+          <p>Cada proyecto parte de entender primero cómo opera el negocio, para después construir algo que encaje en su realidad — no al revés.</p>
+        </div>
+        <svg class="glyph" width="140" height="140" viewBox="0 0 140 140" fill="none" aria-hidden="true">
+          <circle cx="70" cy="70" r="69" stroke="#1D7874" stroke-opacity="0.35"/>
+          <circle cx="70" cy="70" r="48" stroke="#1D7874" stroke-opacity="0.55"/>
+          <circle cx="70" cy="70" r="27" fill="#E8A33D" fill-opacity="0.9"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="divide" id="como-trabajamos">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Cómo trabajamos</h2>
+        <p>Un proceso corto, pensado para llegar rápido a algo funcional y mejorarlo con uso real.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="mark">1</span>
+          <div>
+            <h3>Escuchamos</h3>
+            <p>Entendemos el negocio, a quién le habla y qué problema concreto queremos resolver primero.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="mark">2</span>
+          <div>
+            <h3>Diseñamos</h3>
+            <p>Definimos la solución más simple que resuelve ese problema, sin funciones de más.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="mark">3</span>
+          <div>
+            <h3>Construimos</h3>
+            <p>Desarrollamos y probamos con datos y casos reales antes de ponerlo en manos del cliente final.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="mark">4</span>
+          <div>
+            <h3>Acompañamos</h3>
+            <p>Damos seguimiento después del lanzamiento, ajustando lo que el uso real vaya mostrando.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="divide" id="contacto">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Contacto</h2>
+        <p>Cuéntanos brevemente qué necesitas y te respondemos por correo.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>Escríbenos directamente si prefieres:</p>
+          <a class="email" href="mailto:mubseen.gt@gmail.com">mubseen.gt@gmail.com</a>
+        </div>
+        <form action="https://formsubmit.co/mubseen.gt@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nuevo mensaje desde el sitio de Mubseen">
+          <input type="hidden" name="_captcha" value="false">
+          <div>
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="Nombre" required>
+          </div>
+          <div>
+            <label for="email">Correo</label>
+            <input type="email" id="email" name="Correo" required>
+          </div>
+          <div>
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="Mensaje" required></textarea>
+          </div>
+          <button type="submit">Enviar mensaje</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 Mubseen Guatemala. Todos los derechos reservados.
+  </div>
+</footer>
+
+</body>
+</html>
